@@ -1,0 +1,2 @@
+# GitStore
+my first repository
