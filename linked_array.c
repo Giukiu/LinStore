@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/* Unfinished */
+/* Create a linkde list to store the integers entered by the user. */
 struct node
 {
     int data;
