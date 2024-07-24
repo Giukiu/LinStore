@@ -1,3 +1,2 @@
 # GitStore
-my first repository
-This repository will store my projects
+My first repository, this repository will store my projects.
