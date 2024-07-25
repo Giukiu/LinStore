@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*中缀表达式转后缀表达式，后缀表达式的计算*/
-/*目前实现了将中缀表达式的元素压入栈，运算符和数字分别存储*/
+/*Conversion of infix expressions to suffix expressions, calculation of suffix expressions*/
+/*At present, it is implemented to press the elements of the infix expression into the stack, 
+and the operators and numbers are stored separately*/
 
 struct node {
 	int data;
