@@ -121,7 +121,7 @@ void Print()
 		temp = temp->next;
 	}
 }
-int main()
+int main(void)
 {
 	char array[21];
 	gets_s(array, 21);
