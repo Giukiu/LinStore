@@ -5,6 +5,7 @@
 struct node
 {
     int value;
+    struct node* pre;
     struct node* next;
 };
 struct node* head = NULL;
@@ -14,6 +15,7 @@ struct node* enQ(int i)
 {
     struct node* new = (struct node*)malloc(sizeof(struct node));
     new->value = i;
+    new->pre = NULL;
     
     if (end == NULL){
         end = new;
@@ -22,8 +24,16 @@ struct node* enQ(int i)
         return end;
     }
     new->next = end;
+    end->pre = new;
     end = new;
     return end;
+}
+
+struct node* outQ()
+{
+    struct node* temp = head;
+    head = head->pre;
+    return temp;
 }
 void print()
 {
@@ -41,6 +51,9 @@ int main(void)
     enQ(8);
     enQ(9);
     print();
-    printf("\n%d", head->value);
+    outQ();
+    outQ();
+    int q = outQ()->value;
+    printf("\n%d", q);
     return 0;
 }
