@@ -34,7 +34,8 @@ void inorder(struct BSTnode* root)
     printf("%d  ", root->value);
     inorder(root->right);
 }
-int main()
+
+int main()  /*生成随机数并存储到树中*/
 {
     int randomArray[11];
     struct BSTnode* root = NULL;
