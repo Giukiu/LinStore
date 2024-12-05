@@ -149,7 +149,7 @@ void inorderTree(struct bstNode* Tree)
 }
 int main()
 {
-    int array[size] = {1, 2, 3};
+    int array[size] = {1, 2, 4};
     struct linkNode* linkHead = NULL;
     linkHead = linkInsert(linkHead, array);
     printf("This is a linked list: ");
