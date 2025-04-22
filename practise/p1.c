@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+/*线索二叉树的构建*/
+
 typedef struct ThreadTreeNode{
     int data;
     struct ThreadTreeNode* left, *right;
@@ -18,7 +20,7 @@ Tnode* getNode(int e)
     new->left = new->right = NULL;
     return new;
 }
-Tnode* creat(Tnode* root, int e)
+Tnode* creat(Tnode* root, int e)        /*递归建立一棵普通二叉树*/
 {
     if (!root) return root = getNode(e);
     if (e < root->data) {
@@ -35,7 +37,7 @@ void input(Tnode* root, int* array)
         i++;
     }
 }
-void Print(Tnode* root)
+void Print(Tnode* root)     /*递归中序遍历普通二叉树*/
 {
     if (!root) return;
 
@@ -44,7 +46,7 @@ void Print(Tnode* root)
     Print(root->right);
 }
 Tnode* pre = NULL;
-void inorder(Tnode* root)
+void inorder(Tnode* root)       /*二叉树的中序线索化*/
 {
     if (root != NULL) {
         inorder(root->left);
@@ -62,7 +64,7 @@ void inorder(Tnode* root)
     }  
    
 }
-void P(Tnode* r)
+void P(Tnode* r)           /*遍历线索二叉树*/
 {  
     while (r && r->L == 0) {
     r = r->left;
@@ -78,8 +80,6 @@ void P(Tnode* r)
         }
     }
    }
-   
-
 }
    
 int main()
@@ -91,6 +91,5 @@ int main()
     
     inorder(root);
     P(root);
-    printf("\n%d", root->data);
     return 0;
 }
