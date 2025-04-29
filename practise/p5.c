@@ -14,10 +14,12 @@ HF* create(int e)
 }
 int findMin(HF** nodes, int n, int exclude) 
 {
-    int minIndex = -1;
-    for (int i = 0; i < n; i++) {
-        if (!nodes[i] || exclude == i) continue;
-        if (minIndex == -1 || nodes[i]->weight < nodes[minIndex]->weight) {
+    
+
+    int minIndex = 0; // 从这里开始没问题
+    for (int i = 1; i < n; i++) {
+        if (!nodes[i] || i == exclude) continue;
+        if (!nodes[minIndex] || minIndex == exclude || nodes[i]->weight < nodes[minIndex]->weight) {
             minIndex = i;
         }
     }
@@ -48,12 +50,6 @@ void printHF(HF* root)
     printHF(root->left);
     printf("%d ", root->weight);
     printHF(root->right);
-}
-void inspect(HF** nodes, int n)
-{
-    for (int i = 0; i < n; i++) {
-        printf("%d ", nodes[i]->weight);
-    }
 }
 int main()
 {
