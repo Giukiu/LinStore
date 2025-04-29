@@ -15,8 +15,7 @@ HF* create(int e)
 int findMin(HF** nodes, int n, int exclude) 
 {
     
-
-    int minIndex = 0; // 从这里开始没问题
+    int minIndex = 0;
     for (int i = 1; i < n; i++) {
         if (!nodes[i] || i == exclude) continue;
         if (!nodes[minIndex] || minIndex == exclude || nodes[i]->weight < nodes[minIndex]->weight) {
@@ -51,12 +50,35 @@ void printHF(HF* root)
     printf("%d ", root->weight);
     printHF(root->right);
 }
+
+int depth(HF* root)     /*计算树的深度*/
+{
+    if (root == NULL) return 0;
+    int m = depth(root->left);
+    int n = depth(root->right);
+    if (m > n) return m + 1;
+    return n + 1;
+}
+int s(HF* root)     /*统计树的结点总数*/
+{
+    if (root == NULL) return 0;
+    int m = s(root->left);
+    int n = s(root->right);
+    return m + n + 1;
+}
+int a(HF* root)     /*统计度为2的结点*/
+{
+    if (root == NULL) return 0;
+    int m = a(root->left);
+    int n = a(root->right);
+    if (root->left && root->right) return m + n + 1;
+}
 int main()
 {
     int weight[] = {4, 6, 3, 1, 7, 8, 12, 2};
     int number = sizeof(weight) / sizeof(weight[0]);
     HF* root = build(weight, number);
-    
     printHF(root);
+    printf("\n%d ", a(root));
     return 0;
 }
