@@ -1,6 +1,10 @@
 #include <iostream>
 int main()
 {
-	std::cout << "Hello World";
+	std::string mark = "Hello World" ;
+	std::cout << mark << std::endl;
+	int a = 3;
+	int s = 2;
+	std::cout << a + s;
 	return 0;
 }
