@@ -5,6 +5,7 @@ int main()
 	std::cout << mark << std::endl;
 	int a = 3;
 	int s = 2;
-	std::cout << a + s;
+	double x = 2.12221;
+	std::cout << x;
 	return 0;
 }
