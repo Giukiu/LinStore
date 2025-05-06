@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct arcNode{
+/*构建图的邻接表*/
+typedef struct arcNode{     /*边结点结构体*/
     int adjvex;
     struct arcNode* nextarc;
 }arcNode;
-typedef struct Vnode{
+typedef struct Vnode{       /*表头结点结构体*/
     char V;
     arcNode* firstarc;
 }Vnode;
-typedef struct Graph{
+typedef struct Graph{       /*邻接表图结构体*/
     int vertices, edges;
     Vnode** adjList;
 }Graph;
 
-Graph* createGraph(int vertices, int edges)
+Graph* createGraph(int vertices, int edges)     /*邻接表图的初始化*/
 {
     Graph* G = malloc(sizeof(Graph));
     G->adjList = malloc(sizeof(Vnode) * vertices);
@@ -21,7 +22,7 @@ Graph* createGraph(int vertices, int edges)
     G->edges = edges;
     return G;
 }
-void createADJlise(Graph* G)
+void createADJlise(Graph* G)        /*表头数组初始化*/
 {
     char a[] = "abcdefg";
     for (int i = 0; i < G->vertices; i++) {
@@ -31,7 +32,7 @@ void createADJlise(Graph* G)
     }
     
 }
-int Loc(Graph* G, char e)
+int Loc(Graph* G, char e)       /*寻找结点在表头数组中的下标*/
 {
     for (int i = 0; i < G->vertices; i++) {
        if (e == G->adjList[i]->V)
@@ -39,14 +40,14 @@ int Loc(Graph* G, char e)
     }
     return -1;
 }
-arcNode* createARCnode(int e)
+arcNode* createARCnode(int e)       /*创建边结点*/
 {
     arcNode* newNode = malloc(sizeof(arcNode));
     newNode->adjvex = e;
     newNode->nextarc = NULL;
     return newNode;
 }
-void createEdge(Graph* G, int i, int j)
+void createEdge(Graph* G, int i, int j)  /*创建边*/
 {
     
     arcNode* newNode = createARCnode(j);
