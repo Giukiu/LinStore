@@ -28,12 +28,12 @@ void printMST(int parent[], int graph[V][V]) {
 // Prim 算法核心函数
 void primMST(int graph[V][V]) {
     int parent[V];      // 保存最小生成树
-    int key[V];         // 最小权值初始化为无穷大
+    int key[V];         
     bool mstSet[V];     // mstSet[i] 为 true 表示顶点 i 已包含在 MST 中
 
     // 初始化
     for (int i = 0; i < V; i++) {
-        key[i] = INT_MAX;
+        key[i] = INT_MAX;   // 最小权值初始化为无穷大
         mstSet[i] = false;
     }
 
@@ -54,14 +54,9 @@ void primMST(int graph[V][V]) {
             }
         }
     }
-
-    // 打印结果
     printMST(parent, graph);
 }
-
-// 主函数
 int main() {
-    // 图的邻接矩阵表示
     int graph[V][V] = {
         {0, 2, 0, 6, 0},
         {2, 0, 3, 8, 5},
