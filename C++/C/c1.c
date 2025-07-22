@@ -60,5 +60,6 @@ int main()
     del(&Lin , 2);
     change(&Lin, 0, 8);
     print(&Lin);
+    
     return 0;
 }
